@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.11)
 
 project(tl-function_ref VERSION 1.0.0 LANGUAGES CXX)
 
-option(FUNCTION_REF_ENABLE_TESTS "Enable tests." ON)
+option(FUNCTION_REF_ENABLE_TESTS "Enable tests." OFF)
 
 include(FetchContent)
 FetchContent_Declare(
