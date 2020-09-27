@@ -4,20 +4,9 @@ project(tl-function_ref VERSION 1.0.0 LANGUAGES CXX)
 
 option(FUNCTION_REF_ENABLE_TESTS "Enable tests." OFF)
 
-include(FetchContent)
-FetchContent_Declare(
-  tl_cmake
-  GIT_REPOSITORY https://github.com/TartanLlama/tl-cmake.git
-)
-FetchContent_GetProperties(tl_cmake)
-if(NOT tl_cmake_POPULATED)
-  FetchContent_Populate(tl_cmake)
-  set(CMAKE_MODULE_PATH ${tl_cmake_SOURCE_DIR} ${CMAKE_MODULE_PATH})
-endif()
-include(add-tl)
-
-tl_add_library(function-ref SOURCES 
-               include/tl/function_ref.hpp)
+add_library(function-ref
+  include/tl/function_ref.hpp)
+  set_target_properties(function-ref PROPERTIES LINKER_LANGUAGE CXX)
 
 # Prepare "Catch" library for other executables
 set(CATCH_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/test)
